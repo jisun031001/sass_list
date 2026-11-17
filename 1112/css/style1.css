@@ -1,0 +1,96 @@
+.title01 {
+  color: #f00;
+  background-color: #ffff00;
+}
+
+.title02 {
+  color: #f00;
+  background-color: #ffff00;
+  color: #00f;
+}
+
+.title01:hover, .title02:hover {
+  border: 2px solid #333;
+}
+
+.p01 {
+  width: 350px;
+  border: 1px solid #f00;
+  background-color: #ffff00;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.reset_btn {
+  font-family: "Noto Sans";
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  width: 170px;
+  height: 56px;
+  background-color: #fff;
+}
+
+.cart_btn {
+  font-family: "Noto Sans";
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  width: 170px;
+  height: 56px;
+  background-color: rgb(95, 0, 128);
+  color: #fff;
+}
+
+.toggle_btn, .toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle_btn .bar, .toggle .bar {
+  height: 6px;
+  width: 40px;
+  background-color: #333;
+  display: block;
+  transition: 0.3s;
+}
+
+#toggle:checked ~ .toggle_btn .bar1 {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10px;
+}
+
+#toggle:checked ~ .toggle_btn .bar2 {
+  display: none;
+}
+
+#toggle:checked ~ .toggle_btn .bar3 {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px;
+}
+
+.act_rotate01 {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10px !important;
+}
+
+.act_none {
+  display: none !important;
+}
+
+.act_rotate02 {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px !important;
+}/*# sourceMappingURL=style1.css.map */

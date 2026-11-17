@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+// 변수 선언
+$basseFont:'맑은고딕', arial, sans-serif;
+$baseFontColor:#333;
+$baseFontSize:12px;
+$bigFontSize:26px;
+
+$bgColor:#ffff00;
+$textColor_w:#fff;
+
+$boxWidth:1200px;
+$boxCenter:0 auto;
+$innerPadding:20px 10px;
+$boxSizing:border-box;
+$border_1:1px solid $baseFontColor;
+$textAlignCenter:center;
+
+body{
+  font-family: $basseFont;
+  font-size: $baseFontSize;
+  color: $baseFontColor;
+}
+
+header, main, footer{padding: $innerPadding; box-sizing: $boxSizing;}
+header, footer{background-color: $baseFontColor; color: $textColor_w;}
+
+header > h1{font-size: $bigFontSize;}
+
+main{
+  width: $boxWidth;
+  margin: $boxCenter;
+  background-color: $bgColor;
+  border: $border_1;
+}
+section h2{text-align: $textAlignCenter; font-size: $bigFontSize;}
+address{text-align: $textAlignCenter; font-style: normal;}

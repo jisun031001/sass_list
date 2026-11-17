@@ -1,0 +1,9 @@
+
+:root{--text_color: rgb(114, 114, 255);}
+
+h3{background: var(--text_color);}
+
+// scss 변수 생성
+$t_color1:#333;
+
+body{color: $t_color1;}

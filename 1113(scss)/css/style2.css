@@ -1,0 +1,96 @@
+@charset "UTF-8";
+ul, li {
+  list-style: none;
+  padding: 0;
+}
+
+.product {
+  width: 1000px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.product h2 {
+  height: 70px;
+  width: 1000px;
+  background: #5dc4ec;
+  margin-top: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+  font-weight: 500;
+}
+
+.product .wrap1 {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  top: 80px;
+  left: 0;
+}
+
+.product .wrap1 img {
+  width: 100%;
+}
+
+.product .wrap2 {
+  width: 480px;
+  height: 400px;
+  margin-left: 20px;
+  position: absolute;
+  top: 80px;
+  right: 0;
+}
+
+p {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.p01 {
+  color: #818080;
+  font-size: 14px;
+}
+
+span {
+  color: #f00;
+  font-weight: bold;
+  float: right;
+  font-size: 16px;
+}
+
+.wrap1 ul li img {
+  width: 100%;
+}
+
+.wrap2 ul li img {
+  width: 250px; /* 원하는 고정 너비 (원하시는 크기로 조절 가능) */
+  -o-object-fit: cover;
+     object-fit: cover; /* 이미지가 찌그러지지 않고 비율을 유지하며 상자를 채우게 함 */
+  flex-shrink: 0; /* 공간이 부족해도 이미지가 찌그러지거나 줄어들지 않도록 고정 */
+}
+
+.wrap2 ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrap2 ul li {
+  display: flex;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.wrap2 ul li:last-child {
+  border: none;
+}
+
+.wrap2 ul li div {
+  width: 260px;
+  margin-left: 20px;
+}/*# sourceMappingURL=style2.css.map */

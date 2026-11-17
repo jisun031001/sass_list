@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 실전  테스트_todolist</title>
+  <!-- 5. 폰트어썸 라이브러리 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    .wrap{
+      padding: 10px;
+      width: 400px; 
+      border: 1px solid #333;}
+    #addValue{
+      border: 2px solid #ff5100;
+      width:300px; height: 30px;}
+    #btn{
+      background-color:#ff5100;
+      color: #fff;
+      border: none;
+      width: 40px; height: 34px;
+    }
+    main ul{padding: 0;}
+    main li{
+      list-style: none; 
+      position: relative;
+      width: 300px;
+      border: 1px solid #ff5100; 
+      display: flex; 
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;}
+
+    .done{
+      background: #ff5100;
+      }
+  
+    main li span{
+      display: inline-block;
+      width: 10px; height: 10px;
+      border:2px solid #ff5100 ;
+      border-radius: 50%;
+    }
+    #del_btn{
+      background-color: #ff5100;
+      color: #fff;
+      border: none;
+      padding:  5px 10px;
+      box-shadow: 1px 1px #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+
+    }
+  </style>
+</head>
+<body>
+  <h2>자바스크립트 실전  테스트_todolist</h2>
+  <dl>
+    <dt>오늘의 일정 구현하기</dt>
+    <dd>1. 입력폼과 추가버튼, 글삭제 버튼을 작성</dd>
+    <dd>2. 입력폼에 글입력하고 추가버튼 클릭시 아래 목록으로 내용 출력</dd>
+    <dd>3. 출력내용 옆에 삭제 버튼 추가</dd>
+    <dd>4. 삭제버튼 클릭시 해당 글 삭제</dd>
+    <dd>5. 해당 목록 글 클릭시 취소선 표시</dd>
+    <dd>6. 글삭제 버튼 클릭시 전체 글 삭제</dd>
+  </dl>
+
+  <div class="wrap">
+    <header>
+      <h2>오늘의 할 일은?</h2>
+      <div>
+        <input type="text" placeholder="검색어를 입력하세요." id="addValue">
+        <button type="submit" id="btn">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- 메인영역 시작 -->
+    <main>
+      <section>
+        <ul>
+          <li><span>&nbsp;</span><div id="result">글 내용이 출력됩니다.</div></li>
+        </ul>
+        <p>
+          <button id="del_btn">글 모두 삭제</button>
+        </p>
+      </section>
+    </main>
+
+    <!-- 푸터영역 시작 -->
+    <footer>
+      <address>Copyright&copy;2026 오늘의 할 일 allrights reserved.</address>
+    </footer>
+  </div>
+
+  <script>
+    // 1. 변수선언
+    const btn = document.getElementById('btn'); //플러스버튼
+    const del_btn = document.getElementById('del_btn'); //삭제버튼
+    let result = document.querySelector('ul'); //출력되는 곳
+    let addValue = document.getElementById('addValue'); //입력하는 곳
+
+    // 2. 글추가 버튼(+) 클릭시 내용 출력하는 함수 호출하기
+    btn.addEventListener('click', function(){
+      addTo();
+    });
+
+    // 3. 내용 출력을 위한 함수
+    function addTo(){
+      //alert('ok');
+      if(addValue.value===''){  //입력양식에 내용이 비어있다면 메세지 띄우고
+        alert('글내용을 입력하세요.');
+      }else{  //글입력을 했다면 목록에 글내용을 출력한다
+        let list = document.createElement('li');
+        let del = document.createElement('button');
+        let span = document.createElement('span');
+        let div = document.createElement('div');
+
+        div.innerHTML = addValue.value; //목록에 글내용을 출력
+
+        result.appendChild(list); //li태그를 추가
+        list.appendChild(span);
+        list.appendChild(div);
+        list.appendChild(del); //li태그의 자손으로 button 추가
+
+        addValue.value='' // 기존 입력한 글 지우기
+        addValue.focus();
+
+        // 삭제버튼 서식 추가
+        del.innerText = '삭제';
+        del.style.fontSize = '15px';
+        del.style.border= 'none';
+        del.style.position= 'absolute';
+        del.style.right = '10px';
+        del.style.cursor='pointer';
+        del.style.background='none'
+
+        let i = 1; //변수 선언
+        list.addEventListener('click', function(){
+          
+          // 해당 글목록을 클릭시 취소선, 글자색 회색으로 표시
+          if(i==0){
+            list.style.textDecoration='line-through'; //취소선
+            list.style.color='gray';
+            span.classList.add('done');
+            i=1; //변수에 1값 저장
+          }else{  // i값이 1일 경우 다시 해당 글목록 클릭시 원래대로 서식변경
+            list.style.textDecoration='none'; //취소선
+            list.style.color='#333';
+            span.classList.remove('done');
+            i=0;
+          }
+        });
+
+        // del(x)버튼을 클릭시 전송 삭제하기 -> 클릭한 li태그를 삭제
+        del.addEventListener('click', function(e){
+          let li_remove = e.target.parentElement;
+
+          li_remove.remove(); //닫기 버튼의 부모 li태그를 지운다
+        });
+      }
+    }
+
+    // 엔터키로 전송
+    addValue.addEventListener('keydown', function(e){
+      if(e.key==='Enter'&&!e.shiftkey){
+        e.preventDefault();
+        addTo();
+      }
+    });
+
+    // 전체글 삭제하기
+    del_btn.addEventListener('click', function(){
+      clearAll(); //함수호출
+    });
+
+    // 전체글 삭제 함수
+    function clearAll(){
+      if(confirm('정말 모두 삭제하시겠습니까?')==true) {
+        if(result.innerText== ''){
+          alert('삭제할 글목록이 없습니다.');
+        }else{
+          result.innerText='';
+        }
+      }else{ //취소시
+        return false; //아무일도 일어나지 않음
+        }
+    };
+  </script>
+</body>
+</html>

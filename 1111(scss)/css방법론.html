@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css방법론</title>
+  <!-- 공통서식 -->
+  <link rel="stylesheet" href="./layout/base.css">
+  <!-- 레이아웃 서식 -->
+  <link rel="stylesheet" href="./layout/layout.css">
+</head>
+<body>
+  <h2>css방법론</h2>
+  <p>css방법론은 대규모 프로젝트 작업시 css코드베이스의 유지 보수성, 재사용성, 확장성을 향상시키기 위해 사용되는 일련의 규칙</p>
+  <p>이러한 방법론들은 css코드의 구조를 개선하고, 개발자들이 일관성있는 방식으로 스타일을 작성할 수 있도록 한다</p>
+
+  <h3>1. 방법론의 종류</h3>
+  <ol>
+    <li>oocss(object oriented csss)
+      <p>css를 객체로 분해하여 스타일을 정의하는 방법론으로 css를 객체 지향 프로그래밍 원리에 따라 구조화하여 재사용 가능한 컴포넌트를 만들고, 중복 코드를 줄이는 것을 목표로 한다 예) 버튼 서식(로그인, 회원가입, 네이버 로그인, 카카오 로그인)</p>
+    </li>
+    <li>smacss(scalable and modular architecture for css)
+      <p>css코드를 5가지 유형 (기본, 레이아우스 모듈, 상태, 테마)으로 나누어 규칙을 적용하고, 모듈화된 구조를 구축하여 확장성을 높이는 방법론이다 예) 다크모드, 카드 디자인</p>
+    </li>
+    <li>bem(block element modifier)
+      <p>ui를 독립적인 블록으로 분리하고, 블록 내의 요소와 수정자를 정의하여 클래스 이름을 규칙적으로 구성하는 방법론이다</p>
+    </li>
+  </ol>
+
+  <h3>2. 방법론의 장점, 단점</h3>
+  <dl>
+    <dt>oocss</dt>
+    <dd>장점 : 코드 재사용성 증가, 중복 코드 감소, 유지보수 용이성</dd>
+    <dd>단점 : 배우기 어렵고 복잡하다</dd>
+
+    <dt>smacss</dt>
+    <dd>장점 : 모듈화된 코드, 확장성이 용이하다, 코드 관리가 용이하다</dd>
+    <dd>단점 : 규칙을 준수하기가 어려우며 오버헤드 발생 가능성이 존재</dd>
+
+    <dt>bem</dt>
+    <dd>장점 : 구조화된 코드, 클래스명 규칙을 정하여 사용, 유지보수의 용이성이 높고 예측 가능한 코드</dd>
+    <dd>단점 : 긴 클래스명이 존재, 복잡한 구조를 가짐</dd>
+  </dl>
+
+  <br><br>
+
+  <p>css방법론은 프로젝트의 규모와 복잡성에 따라 적절하게 선택하여 적용하는 것이 중요하고, 각 방법론의 장,단점을 파악하여 팀의 개발 환경에 적용한다. 한가지 방법을 선택하는 것이 아니라 상황에 마덱 프로젝트 규모에 맞게 적절하게 혼합하여 사용한다.</p>
+
+  <header>
+    상단 헤더 영역
+  </header>
+
+  <main>
+    <h2>1. oocss방식으로 서식 적용하기</h2>
+    <p>
+    <input type="button" value="로그인" class="btn login">
+    </p>
+    <p>
+    <input type="button" value="회원가입" class="btn join">
+    </p>
+    <h2>2. smacss방식으로 서식 적용하기</h2>
+
+    <h2>3. bem방식으로 서식 적용하기</h2>
+    <p>(웹에이전시, 퍼블리셔 분들이 많이 사용)</p>
+    <form class="search-form">
+      <input type="button" value="버튼" class="btn search-form__btn">
+      <input type="reset" value="취소하기" class="btn search-form__btn__reset">
+      <input type="button" value="예약하기" class="btn search-form__btn__reserve">
+      <input type="button" value="예약하기" class="btn search-form__btn__reserve__dark">
+    </form>
+  </main>
+
+  <footer>
+    하단 푸터 영역
+  </footer>
+</body>
+</html>

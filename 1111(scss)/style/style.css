@@ -1,0 +1,11 @@
+:root {
+  --text_color: rgb(114, 114, 255);
+}
+
+h3 {
+  background: var(--text_color);
+}
+
+body {
+  color: #333;
+}/*# sourceMappingURL=style.css.map */

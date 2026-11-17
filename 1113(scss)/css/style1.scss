@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+// 변수선언
+$baseTxtColor:#333;
+$pointTxtColor:#f00;
+$time:0.3s;
+
+// 1. sns 서식
+@mixin sns{
+  font-size: 30px;
+  color: $baseTxtColor;
+}
+@mixin hover{
+  color: $pointTxtColor;
+  font-size: 35px;
+} 
+
+.sns{
+  @include sns;
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+}
+.sns li{list-style: none; }
+.sns li i{transition:$time;}
+.sns li:hover i{
+  @include hover;
+  transform:translateY(-5px);}
+
+  // mixin함수에 매개변수 할당하여 처리하기
+  @mixin divBox($bgcolor1, $border_color1){
+    background:$bgcolor1;
+    border:3px solid $border_color1;
+  }
+
+  #box01{
+    @include divBox(#0f0, #f00);
+  }
+  #box02{
+    @include divBox(#ff0, #00f);
+  }
+
+  // 실습2
+  @mixin loginBtn($bgcolor,$txtcolor){
+    background: $bgcolor;
+    color: $txtcolor;
+  }
+  @mixin btn{
+    width: 250px; height: 40px;
+    border: none;
+    padding: 10px;
+    box-shadow: 1px 1px #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn1{@include loginBtn(#5f0080,#fff); @include btn;}
+  .btn2{@include loginBtn(#01da01,#fff); @include btn;}
+  .btn3{@include loginBtn(#ff0,#000); @include btn;}
+
+  // 목록태그에 믹스인 함수 기본값 설정하기
+  @mixin borderStyle($w:1px, $s:solid, $c:#ccc){
+    border: $w $s $c;
+  }
+
+  .list01 li{@include borderStyle;}
+  .list01 li:first-child{}
+  .list01 li:nth-child(2){
+    @include borderStyle(3px,solid ,#f00 );
+  }
+  .list01 li:nth-child(3){@include borderStyle(3px,double ,#00f );}
+  .list01 li:nth-child(4){@include borderStyle(4px,dotted ,#ff00b3 );}
+  .list01 li:last-child{@include borderStyle(4px,dashed ,#000 );}
+
+  // 달력
+  $t_width:600px;
+
+  @mixin border($w:1px, $s:solid, $c:#00f){
+    border:$w $s $c;
+  }
+  @mixin caption($bg:#bbbbbb){
+    background: $bg;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+  .calender{
+    @include border; 
+    width: $t_width; 
+    border-collapse:collapse;}
+
+  .calender caption{
+    @include caption;
+  }
+  .calender th, .calender td{@include border;}
+
+  // 홀수번째, 짝수번째 라인 서식
+  @mixin oddTr($bg:#523ffc){
+    background-color: $bg;
+  }
+  @mixin evenTr($bg:#dcd8fc){
+    background-color: $bg;
+  }
+
+  .calender tr:nth-child(2n+1){@include oddTr;}
+  .calender tr:nth-child(2n){@include evenTr;}

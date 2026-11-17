@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+// 변수선언
+$bg_color:#ffff00;
+$bg_color_m:rgb(95, 0, 128);
+$txt_color1:#f00;
+$txt_color2:#00f;
+$border01: 2px solid #333;
+$line_color_g: #ccc;
+
+@mixin h3txt{
+  color: $txt_color1;
+  background-color: $bg_color;
+}
+
+.title01{
+  @include h3txt;
+}
+
+.title02{
+  @include h3txt;
+  color: $txt_color2;
+}
+.title01:hover, .title02:hover{border: $border01;}
+
+// 실습1. 글자 생략기호(..)나오게 하기
+@mixin txt_over{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.p01{
+  width: 350px;
+  border: 1px solid #f00;
+  background-color: $bg_color;
+  @include txt_over;
+}
+
+// 버튼 글자 서식
+@mixin btnFont{
+  font-family: "Noto Sans";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+// 버튼 모양 서식
+@mixin btnArea{
+  border: 1px solid $line_color_g;
+  padding: 0 10px;
+  width: 170px; height: 56px;
+}
+
+// 버튼 서식 합치기
+@mixin btn{
+  @include btnFont;
+  @include btnArea;
+}
+.reset_btn{@include btn; background-color: #fff;}
+.cart_btn{@include btn; background-color: $bg_color_m; color: #fff;}
+
+// 실습2. 토글버튼 구현
+@mixin toggle{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+@mixin bar{
+height: 6px; width: 40px;
+  background-color: #333;
+  display: block;
+  transition: 0.3s;
+}
+
+.toggle_btn, .toggle{@include toggle;}
+.toggle_btn .bar, .toggle .bar{@include bar;}
+
+
+#toggle:checked ~ .toggle_btn .bar1{transform: rotate(45deg); position: absolute; top: 10px;}
+#toggle:checked ~ .toggle_btn .bar2{display: none;}
+#toggle:checked ~ .toggle_btn .bar3{transform: rotate(-45deg); position: absolute; top: 10px;}
+
+// act 서식
+.act_rotate01{transform: rotate(45deg); position: absolute; top: 10px !important;}
+.act_none{display: none !important;}
+.act_rotate02{transform: rotate(-45deg); position: absolute; top: 10px !important;}

@@ -1,0 +1,111 @@
+.sns {
+  font-size: 30px;
+  color: #333;
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+}
+
+.sns li {
+  list-style: none;
+}
+
+.sns li i {
+  transition: 0.3s;
+}
+
+.sns li:hover i {
+  color: #f00;
+  font-size: 35px;
+  transform: translateY(-5px);
+}
+
+#box01 {
+  background: #0f0;
+  border: 3px solid #f00;
+}
+
+#box02 {
+  background: #ff0;
+  border: 3px solid #00f;
+}
+
+.btn1 {
+  background: #5f0080;
+  color: #fff;
+  width: 250px;
+  height: 40px;
+  border: none;
+  padding: 10px;
+  box-shadow: 1px 1px #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn2 {
+  background: #01da01;
+  color: #fff;
+  width: 250px;
+  height: 40px;
+  border: none;
+  padding: 10px;
+  box-shadow: 1px 1px #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn3 {
+  background: #ff0;
+  color: #000;
+  width: 250px;
+  height: 40px;
+  border: none;
+  padding: 10px;
+  box-shadow: 1px 1px #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list01 li {
+  border: 1px solid #ccc;
+}
+
+.list01 li:nth-child(2) {
+  border: 3px solid #f00;
+}
+
+.list01 li:nth-child(3) {
+  border: 3px double #00f;
+}
+
+.list01 li:nth-child(4) {
+  border: 4px dotted #ff00b3;
+}
+
+.list01 li:last-child {
+  border: 4px dashed #000;
+}
+
+.calender {
+  border: 1px solid #00f;
+  width: 600px;
+  border-collapse: collapse;
+}
+
+.calender caption {
+  background: #bbbbbb;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.calender th, .calender td {
+  border: 1px solid #00f;
+}
+
+.calender tr:nth-child(2n+1) {
+  background-color: #523ffc;
+}
+
+.calender tr:nth-child(2n) {
+  background-color: #dcd8fc;
+}/*# sourceMappingURL=style1.css.map */

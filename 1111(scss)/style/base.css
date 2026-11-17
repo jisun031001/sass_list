@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/* 공통서식 */
+:root{
+  --base_color:#333;
+}
+
+/* smacss 방법론 */
+*{margin: 0; padding: 0;}
+ul, li, ol{list-style: none;}
+a{
+  color: var(--base_color);
+  text-decoration: none;
+}
+body{
+  font-family: "맑은 고딕", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: var(--base_color);
+}
+h2,h3,p{padding: 3px;}
+h3{margin-top: 10px;}
+ol{margin-left: 20px;}
+ol li{list-style: circle;}
+dl{padding-left: 20px;}
+dl dt{
+  font-weight: bold; 
+  padding-top: 6px;
+  }
